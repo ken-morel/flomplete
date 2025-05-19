@@ -1,6 +1,7 @@
 # flomplete
 
 Flomplete is a text completion tool created in julia! It simply tries to provide the next and next words until... you hit `ctrl+c` or the precised length was attained.
+The original goal(for this is just a milestone) is to develop a completion tool which can help type faster with intelligent completions based on previous text.
 
 ## usage and functioning principle
 
@@ -83,6 +84,13 @@ je penses que mon cheval était encore fatigué de son voyage de gondar . - - et
 ```
 ```
 ```
+
+## issues
+
+- The original idea was which loads all dictionaries and data directly was fast but easily filled 5GB of ram. Then he has been changed to stream reading directly from the model file, thus no more compressed, but even though that confused much less memory, it is much much much slower. I consider instead storing the data and reading in chunks ~100MB.
+- The tokenization is a real issue and does not work with many languages a time.
+- It needs more data I think for the completions to be more natural.
+
 
 
 
