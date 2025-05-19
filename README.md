@@ -90,6 +90,8 @@ je penses que mon cheval était encore fatigué de son voyage de gondar . - - et
 - The original idea was which loads all dictionaries and data directly was fast but easily filled 5GB of ram. Then he has been changed to stream reading directly from the model file, thus no more compressed, but even though that confused much less memory, it is much much much slower. I consider instead storing the data and reading in chunks ~100MB.
 - The tokenization is a real issue and does not work with many languages a time.
 - It needs more data I think for the completions to be more natural.
+- Flomplete currently produces an array of groups multiplying the size of the data by (contextsize + 1). I will implement instead keeping it as an array and looping though it, deviding it into sub arrays of 1M tokens.
+- Also plan adding sort of a cache to store completions probabilities.
 
 
 
